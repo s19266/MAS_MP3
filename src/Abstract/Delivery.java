@@ -3,6 +3,10 @@ package Abstract;
 public abstract class Delivery {
 	protected String deliveryAddress;
 
+	public Delivery(String deliveryAddress) {
+		this.deliveryAddress = deliveryAddress;
+	}
+
 	public String getDeliveryAddress() {
 		return deliveryAddress;
 	}
@@ -12,8 +16,4 @@ public abstract class Delivery {
 	}
 	
 	public abstract float calculateDeliveryPrice();
-	
-	public Delivery(String deliveryAddress) {
-		this.deliveryAddress = deliveryAddress;
-	}
 }

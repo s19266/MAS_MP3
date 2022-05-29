@@ -1,6 +1,8 @@
 import java.util.Date;
 
 import Abstract.*;
+import Dynamic.IndoorTable;
+import Dynamic.OutdoorTable;
 import Dynamic.Table;
 import MultiAspect.Order;
 import MultiAspect.OrderWithDelivery;
@@ -55,19 +57,13 @@ public class Main {
 		
 		// ==== Dynamic ====
 		System.out.println("Dynamic");
-		var table = Table.createIndoorsTable(1, 2, false);
-		System.out.println("Indoors table is in smoking area?");
-		System.out.println(table.getIsInSmokingArea() ? "true" : "false");
-		System.out.println("Try to check if indoor table is under umbrella");
-		Exceptions.printExpectedException(() -> table.getIsUnderUmbrella());
+		Table table = new OutdoorTable(1,2, true);
+		System.out.println(table);
 
-		System.out.println("Transform indoor table in outdoor table under umbrella");
-		table.makeOutdoor(true);
-		
-		System.out.println("Outdoors table is under the umbrella?");
-		System.out.println(table.getIsUnderUmbrella() ? "true" : "false");
-		System.out.println("Try to check if outdoor table is in smoking area");
-		Exceptions.printExpectedException(() -> table.getIsInSmokingArea());
+		System.out.println("Changing table type");
+		table = new IndoorTable(table, true);
+		System.out.println(table);
+
 		System.out.println("\n------------------------------------------------------------\n");
 
 		// ==== Multi Inheritance ====
